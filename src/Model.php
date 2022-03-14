@@ -23,6 +23,33 @@ use think\db\BaseQuery as Query;
  * Class Model
  * @package think
  * @mixin Query
+ * @method static \think\db\BaseQuery newQuery()
+ * @method static \think\db\BaseQuery where($field, $op = null, $condition = null)
+ * @method static \think\db\BaseQuery whereOr($field, $op = null, $condition = null)
+ * @method static \think\db\BaseQuery whereXor($field, $op = null, $condition = null)
+ * @method static \think\db\BaseQuery whereNull(string $field, string $logic = 'AND')
+ * @method static \think\db\BaseQuery whereNotNull(string $field, string $logic = 'AND')
+ * @method static \think\db\BaseQuery whereNotExists($condition, string $logic = 'AND')
+ * @method static \think\db\BaseQuery whereIn(string $field, $condition, string $logic = 'AND')
+ * @method static \think\db\BaseQuery whereNotIn(string $field, $condition, string $logic = 'AND')
+ * @method static \think\db\BaseQuery whereLike(string $field, $condition, string $logic = 'AND')
+ * @method static \think\db\BaseQuery whereNotLike(string $field, $condition, string $logic = 'AND')
+ * @method static \think\db\BaseQuery whereBetween(string $field, $condition, string $logic = 'AND')
+ * @method static \think\db\BaseQuery whereNotBetween(string $field, $condition, string $logic = 'AND')
+ * @method static \think\db\BaseQuery whereFindInSet(string $field, $condition, string $logic = 'AND')
+ * @method static \think\db\BaseQuery whereColumn(string $field1, string $operator, string $field2 = null, string $logic = 'AND')
+ * @method static \think\db\BaseQuery useSoftDelete(string $field, $condition = null)
+ * @method static \think\db\BaseQuery whereExp(string $field, string $where, array $bind = [], string $logic = 'AND')
+ * @method static \think\db\BaseQuery whereFieldRaw(string $field, $op, $condition = null, string $logic = 'AND')
+ * @method static \think\db\BaseQuery whereRaw(string $where, array $bind = [], string $logic = 'AND')
+ * @method static \think\db\BaseQuery whereOrRaw(string $where, array $bind = [])
+ * @method static \think\db\BaseQuery when($condition, $query, $otherwise = null)
+ * @method static \think\db\BaseQuery order($field, string $order = '')
+ * @method static int insertAll(array $dataSet = [], int $limit = 0)
+ * @method static mixed transaction(callable $callback)
+ *
+ *
+ * @method static \think\db\BaseQuery field($field)
  * @method void onAfterRead(Model $model) static after_read事件定义
  * @method mixed onBeforeInsert(Model $model) static before_insert事件定义
  * @method void onAfterInsert(Model $model) static after_insert事件定义

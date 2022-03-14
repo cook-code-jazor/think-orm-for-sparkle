@@ -29,13 +29,13 @@ trait TimeStamp
      * 创建时间字段 false表示关闭
      * @var false|string
      */
-    protected $createTime = 'create_time';
+    protected $createTime = 'created_at';
 
     /**
      * 更新时间字段 false表示关闭
      * @var false|string
      */
-    protected $updateTime = 'update_time';
+    protected $updateTime = 'updated_at';
 
     /**
      * 时间字段显示格式
