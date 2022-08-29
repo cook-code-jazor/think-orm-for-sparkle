@@ -173,6 +173,12 @@ abstract class Model implements JsonSerializable, ArrayAccess, Arrayable, Jsonab
     protected static $macro = [];
 
     /**
+     * 允许填充数据的字段
+     * @var array
+     */
+    protected $fillable = [];
+
+    /**
      * 设置服务注入
      * @access public
      * @param Closure $maker
@@ -541,6 +547,21 @@ abstract class Model implements JsonSerializable, ArrayAccess, Arrayable, Jsonab
             }
 
             $this->lazySave = true;
+        }
+    }
+
+    /**
+     * 自动填充
+     * @access public
+     * @param  array $data  数据
+     * @return void
+     */
+    public function fill(array $data): void
+    {
+        // 进行数据处理
+        foreach ($data as $key => $value) {
+            if(!in_array($key, $this->fillable)) continue;
+            $this->setAttr($key, $value, $data);
         }
     }
 
