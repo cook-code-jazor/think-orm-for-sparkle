@@ -199,7 +199,7 @@ trait SoftDelete
      */
     protected function getDeleteTimeField(bool $read = false)
     {
-        $field = property_exists($this, 'deleteTime') && isset($this->deleteTime) ? $this->deleteTime : 'delete_time';
+        $field = property_exists($this, 'deleteTime') && isset($this->deleteTime) ? $this->deleteTime : 'deleted_at';
 
         if (false === $field) {
             return false;
