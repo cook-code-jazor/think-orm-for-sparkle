@@ -248,7 +248,18 @@ class DbManager
             throw new InvalidArgumentException('Undefined db config:' . $name);
         }
 
-        return $connections[$name];
+        $connection = $connections[$name];
+
+        if(isset($connection['@location'])){
+
+            $global_config = $this->getConfig('connection.' . $connection['@location']);
+
+            if(!empty($global_config)) $connection = array_merge($global_config , $connection);
+
+            unset($connection['@location']);
+        }
+
+        return $connection;
     }
 
     /**
